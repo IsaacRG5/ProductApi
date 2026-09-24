@@ -1,0 +1,16 @@
+services:
+  productapi-db:
+    image: postgres:16
+    container_name: ProductApiDB
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ProductoApi
+      POSTGRES_USER: isaacProducto
+      POSTGRES_PASSWORD: ApiProducto
+    ports:
+      - "5433:5432"
+    volumes:
+      - productapi_pgdata:/var/lib/postgresql/data
+
+volumes:
+  productapi_pgdata:
